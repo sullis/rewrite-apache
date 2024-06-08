@@ -59,9 +59,6 @@ recipeList:
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: org.apache.hc.client5.http.classic.methods.CloseableHttpResponse
       newFullyQualifiedTypeName: org.apache.hc.client5.http.impl.classic.CloseableHttpResponse
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.apache.hc.client5.http.methods.HttpUriRequest
-      newFullyQualifiedTypeName: org.apache.hc.client5.http.classic.methods.HttpUriRequest
 
   - org.openrewrite.java.ChangePackage:
       oldPackageName: org.apache.http.client.entity
