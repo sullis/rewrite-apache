@@ -38,7 +38,10 @@ class ApacheBestPracticesTest implements RewriteTest {
     void migrateHttpClient() {
         rewriteRun(
           spec -> spec.parser(JavaParser.fromJavaVersion().classpathFromResources(new InMemoryExecutionContext(),
-            "httpclient-4", "httpcore-4", "httpclient5", "httpcore5")),
+            "httpclient-4",
+            "httpcore-4",
+            "httpclient5",
+            "httpcore5")),
           //language=java
           java(
             """
@@ -85,8 +88,7 @@ class ApacheBestPracticesTest implements RewriteTest {
               </project>
               """,
             spec -> spec.after(pom -> {
-                assertThat(pom).contains("<artifactId>poi-ooxml-lite</artifactId>");
-                return pom;
+                return assertThat(pom).contains("<artifactId>poi-ooxml-lite</artifactId>").actual();
             })
           )
         );
